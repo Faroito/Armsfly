@@ -12,5 +12,5 @@ Yo!
 
 ## Contributors
 
-- **Théo Mazars** - [theo-mazars]https://github.com/theo-mazars
-- **Timothée Couble** - [Faroito]https://github.com/Faroito
+- **Théo Mazars** - [theo-mazars](https://github.com/theo-mazars)
+- **Timothée Couble** - [Faroito](https://github.com/Faroito)
