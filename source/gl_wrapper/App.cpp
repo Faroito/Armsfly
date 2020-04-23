@@ -2,7 +2,7 @@
 // Created by Timothée Couble on 17/10/2019.
 //
 
-#include "gl_wrapper/App.hpp"
+#include "App.hpp"
 
 gl_wrapper::App::App(unsigned int width, unsigned int height, const std::string &name) {
     if (!glfwInit())

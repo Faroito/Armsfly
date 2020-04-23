@@ -12,8 +12,8 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "gl_wrapper/Lib.hpp"
-#include "gl_wrapper/Window.hpp"
+#include "Lib.hpp"
+#include "Window.hpp"
 
 namespace scene {
 

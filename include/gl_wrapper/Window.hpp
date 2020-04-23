@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-#include "gl_wrapper/IApp.hpp"
-#include "gl_wrapper/Lib.hpp"
+#include "IApp.hpp"
+#include "Lib.hpp"
 
 namespace gl_wrapper {
 

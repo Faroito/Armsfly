@@ -15,7 +15,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-#include "gl_wrapper/App.hpp"
+#include "App.hpp"
 #include "Camera.hpp"
 
 namespace scene {
@@ -37,7 +37,7 @@ namespace scene {
 
     private:
         GLenum _mode = GL_FILL;
-        Camera_ptr_t _camera = std::make_unique<Camera>(Camera());
+//Camera_ptr_t _camera = std::make_unique<Camera>(Camera());
 
         const std::unordered_map<int, change_camera_t> _keyMap = {
                 {GLFW_KEY_W, &scene::Camera::moveForward},

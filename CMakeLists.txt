@@ -12,6 +12,7 @@ endif()
 
 find_package (PkgConfig REQUIRED)
 find_package (OpenGL REQUIRED)
+find_package (OpenCV REQUIRED)
 find_library(GLFW3_LIBRARY glfw REQUIRED)
 
 if(LINUX)
@@ -29,6 +30,8 @@ endif (APPLE)
 
 set(SOURCE_FILES)
 include_directories(${PROJECT_SOURCE_DIR}/include/)
+include_directories(${PROJECT_SOURCE_DIR}/include/scene)
+include_directories(${PROJECT_SOURCE_DIR}/include/gl_wrapper)
 include_directories(${PROJECT_SOURCE_DIR}/librairies/)
 
 add_executable(Armsfly ${SOURCE_FILES}
@@ -43,6 +46,7 @@ if (APPLE)
           ${GLFW3_LIBRARY}
           ${OPENGL_LIBRARIES}
           ${GLEW_LIBRARY}
+          ${OpenCV_LIBS}
           ${COCOA_LIBRARY} ${COREVID_LIBRARY} ${IOKIT_LIBRARY})
 endif (APPLE)
 
@@ -50,6 +54,7 @@ if (UNIX)
   target_link_libraries (Armsfly
           ${GLEW_LIBRARY}
           ${GLFW3_LIBRARY}
+          ${OpenCV_LIBS}
           ${OPENGL_LIBRARIES}
           pthread)
 endif (UNIX)

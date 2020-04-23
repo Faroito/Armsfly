@@ -2,7 +2,7 @@
 // Created by Timothée Couble on 19/10/2019.
 //
 
-#include "scene/Camera.hpp"
+#include "Camera.hpp"
 
 scene::Camera::Camera() {
     updateCamerasVectors();

@@ -2,7 +2,7 @@
 // Created by Timothée Couble on 17/10/2019.
 //
 
-#include "gl_wrapper/Window.hpp"
+#include "Window.hpp"
 
 gl_wrapper::IApp *gl_wrapper::CallbackInterface::app;
 
