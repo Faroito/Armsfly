@@ -16,7 +16,7 @@ namespace gl_wrapper {
     class App : public IApp {
     public:
         explicit App(unsigned int width, unsigned int height, const std::string &name);
-        ~App();
+        ~App() override;
 
         void start();
 

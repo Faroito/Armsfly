@@ -9,6 +9,8 @@ namespace gl_wrapper {
 
     class IApp {
     public:
+        virtual ~IApp() = default;
+
         virtual void onMouseMove(double x, double y) = 0;
         virtual void onMouseDown(int button, int action) = 0;
         virtual void onMouseScroll(double x, double y) = 0;
