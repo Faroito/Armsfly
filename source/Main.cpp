@@ -27,6 +27,7 @@ int opencvTest(int argc, const char **argv) {
     imshow("Display Image", image);
 
     cv::waitKey(0);
+    return 0;
 }
 
 int main(int argc, const char **argv) {
