@@ -32,6 +32,10 @@
 *.app
 
 # IDE
-cmake-build-debug/
 .idea/
 .vscode
+
+# other
+librairies/
+cmake-build-debug/
+build/
