@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.15)
 project(Armsfly)
 set(CMAKE_CXX_STANDARD 17)
 
+set(GRAPHIC_NAME graphic)
+set(OPENCV_NAME opencv)
+
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   SET( LINUX 1)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -28,41 +31,51 @@ if (APPLE)
   find_library(COREVID_LIBRARY CoreVideo REQUIRED)
 endif (APPLE)
 
-set(SOURCE_FILES)
 include_directories(${PROJECT_SOURCE_DIR}/include/)
 include_directories(${PROJECT_SOURCE_DIR}/include/scene)
 include_directories(${PROJECT_SOURCE_DIR}/include/gl_wrapper)
 include_directories(${PROJECT_SOURCE_DIR}/librairies/)
 
-add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES}
+add_executable(${GRAPHIC_NAME}
         source/gl_wrapper/App.cpp
         source/gl_wrapper/Window.cpp
         source/scene/Camera.cpp
         source/scene/Scene.cpp
-        source/Main.cpp)
+        source/GraphicMain.cpp)
+add_executable(${OPENCV_NAME}
+        source/OpenCVMain.cpp)
 
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -std=c++17)
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wno-unused-parameter)
+target_compile_options(${GRAPHIC_NAME} PRIVATE -std=c++17)
+target_compile_options(${OPENCV_NAME} PRIVATE -std=c++17)
+target_compile_options(${GRAPHIC_NAME} PRIVATE -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
+target_compile_options(${OPENCV_NAME} PRIVATE -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
+target_compile_options(${GRAPHIC_NAME} PRIVATE -Wno-unused-parameter)
+target_compile_options(${OPENCV_NAME} PRIVATE -Wno-unused-parameter)
 
 if (GCC_VERSION VERSION_GREATER 7.0 OR GCC_VERSION VERSION_EQUAL 7.0)
   target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wduplicated-cond -Wduplicated-branche)
 endif()
 
 if (APPLE)
-  target_link_libraries (${CMAKE_PROJECT_NAME}
+  target_link_libraries (${GRAPHIC_NAME}
           ${GLFW3_LIBRARY}
           ${OPENGL_LIBRARIES}
           ${GLEW_LIBRARY}
           ${OpenCV_LIBS}
           ${COCOA_LIBRARY} ${COREVID_LIBRARY} ${IOKIT_LIBRARY})
+  target_link_libraries (${OPENCV_NAME}
+          ${OpenCV_LIBS}
+          ${COCOA_LIBRARY} ${COREVID_LIBRARY} ${IOKIT_LIBRARY})
 endif (APPLE)
 
 if (LINUX)
-  target_link_libraries (${CMAKE_PROJECT_NAME}
+  target_link_libraries (${GRAPHIC_NAME}
           ${GLEW_LIBRARY}
           ${GLFW3_LIBRARY}
           ${OpenCV_LIBS}
+          ${OPENGL_LIBRARIES}
+          pthread)
+  target_link_libraries (${OPENCV_NAME}
           ${OPENGL_LIBRARIES}
           pthread)
 endif (LINUX)
