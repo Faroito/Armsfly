@@ -72,10 +72,9 @@ if (LINUX)
   target_link_libraries (${GRAPHIC_NAME}
           ${GLEW_LIBRARY}
           ${GLFW3_LIBRARY}
-          ${OpenCV_LIBS}
           ${OPENGL_LIBRARIES}
           pthread)
   target_link_libraries (${OPENCV_NAME}
-          ${OPENGL_LIBRARIES}
+          ${OpenCV_LIBS}
           pthread)
 endif (LINUX)
