@@ -2,13 +2,8 @@
 // Created by Timothée Couble on 17/10/2019.
 //
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-
 #include <iostream>
 #include <opencv2/opencv.hpp>
-
-#include "Scene.hpp"
 
 int opencvTest(int argc, const char **argv) {
     if (argc != 2) {
@@ -31,10 +26,6 @@ int opencvTest(int argc, const char **argv) {
 }
 
 int main(int argc, const char **argv) {
-    stbi_set_flip_vertically_on_load(true);
-    scene::Scene app;
-
     opencvTest(argc, argv);
-    app.start();
     return 0;
 }
