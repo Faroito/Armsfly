@@ -61,7 +61,6 @@ if (APPLE)
           ${GLFW3_LIBRARY}
           ${OPENGL_LIBRARIES}
           ${GLEW_LIBRARY}
-          ${OpenCV_LIBS}
           ${COCOA_LIBRARY} ${COREVID_LIBRARY} ${IOKIT_LIBRARY})
   target_link_libraries (${OPENCV_NAME}
           ${OpenCV_LIBS}
